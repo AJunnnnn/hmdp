@@ -1,0 +1,55 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: hmdp
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/hmdp?useSSL=false&serverTimezone=UTC
+      username: root
+      password: 1234
+  mail:
+    # SMTP 服务器地址，例如 QQ 邮箱为 smtp.qq.com，163 邮箱为 smtp.163.com
+    host: smtp.qq.com
+    # 端口，使用 SSL 加密时通常为 465，TLS 为 587
+    port: 465
+    # 你的完整邮箱账号
+    username: 1413679561@qq.com
+    # 邮箱授权码（不是登录密码）
+    password: zimuofxtwikwfhee
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          # 开启认证
+          auth: true
+          # 开启 SSL 安全连接，建议生产环境使用 465 端口并开启
+          ssl:
+            enable: true
+          # 设置连接超时、读取超时等，避免线程阻塞
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+
+  redis:
+    host: localhost
+    port: 6379
+    password: 1234
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 1
+        time-between-eviction-runs: 10s
+    database: 0
+  jackson:
+    default-property-inclusion: non_null # JSON处理时忽略非空字段
+
+mybatis-plus:
+  type-aliases-package: com.hmdp.entity # 别名扫描包
+
+logging:
+  level:
+    com.hmdp: debug
