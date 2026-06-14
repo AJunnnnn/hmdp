@@ -23,6 +23,7 @@ public class MvcConfig extends WebMvcConfigurationSupport {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/user/login","/user/code","/blog/hot","/shop-type/**","/shop/**","/upload/**","/voucher/**")
                 .order(1);
+
         log.info("开始注册拦截器0");
         registry.addInterceptor(refreshTokenInterceptor).addPathPatterns("/**").order(0);
     }
